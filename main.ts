@@ -116,3 +116,26 @@ function getIndexOfArrayItem<T>(array: T[], arrayItem: T): number {
 const array3 = [1, 2, 3, 4, 5]
 const array4 = ['foo', 'bar', 'baz']
 getIndexOfArrayItem(array3, 3) // 2
+
+// Generics com classes
+class Queue<T> {
+    private data: Array<T> = []
+
+    push(item: T) {
+        this.data.push(item)
+    }
+
+    pop(): T | undefined {
+        return this.data.shift()
+    }
+}
+
+const queue = new Queue<number>()
+queue.push(0)
+
+// Valores pre definidos usando types
+type TShirtType1 = 'P' | 'M' | 'G';
+type TShirtType2 = {
+    size: 'P' | 'M' | 'G';
+    color: 'red' | 'blue' | 'green';
+} 
