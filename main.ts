@@ -138,4 +138,35 @@ type TShirtType1 = 'P' | 'M' | 'G';
 type TShirtType2 = {
     size: 'P' | 'M' | 'G';
     color: 'red' | 'blue' | 'green';
-} 
+}
+
+// Optional using types
+type TShirtType3 = {
+    size?: 'P' | 'M' | 'G';
+    color?: 'red' | 'blue' | 'green';
+}
+
+// Readonly using types
+type MongodbUserProps = {
+    readonly _id: string;
+    name: string;
+    email: string;
+    isActive: boolean;
+}
+
+const mongodbUser: MongodbUserProps = {
+    _id: '1',
+    name: 'Marcelo',
+    email: 'marcelo@localhost.com',
+    isActive: true,
+}
+
+// Record<K, V> is a generic type that represents an object 
+// type which keys are K and values are V.
+// For example, Record<string, number> is an object 
+// type with string keys and number values:
+type NumericRecord = Record<string, number>
+const salary: NumericRecord = { annual: 56000, bonus: 1200 } // OK
+
+type Salary = Record<'annual' | 'bonus', number>
+const salary1: Salary = { annual: 56000, bonus: 1200 } // OK
