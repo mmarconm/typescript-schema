@@ -95,3 +95,24 @@ class User2 implements UserProps {
     }
 }
 const user2 = new User2('Marcelo', 20, '1234', new Date());
+
+// Generics
+// Generics são tipos que são definidos apenas quando o objeto é criado.
+function createArrayPair<T, K>(input1: T, input2: K): Array<T | K> {
+    return [input1, input2]
+}
+// Using arrow function
+// const createArrayPair = <T, K>(input1: T, input2: K): Array<T | K> {
+//     return [input1, input2]
+// }
+
+const array1 = createArrayPair(3, 'foo')
+const array2 = createArrayPair('bar', 4)
+
+function getIndexOfArrayItem<T>(array: T[], arrayItem: T): number {
+    return array.findIndex((item) => item === arrayItem)
+}
+
+const array3 = [1, 2, 3, 4, 5]
+const array4 = ['foo', 'bar', 'baz']
+getIndexOfArrayItem(array3, 3) // 2
